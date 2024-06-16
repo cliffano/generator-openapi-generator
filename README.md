@@ -1,7 +1,7 @@
-<img align="right" src="https://raw.github.com/{{github_id}}/generator-openapi-generator/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/cliffano/generator-openapi-generator/master/avatar.jpg" alt="Avatar"/>
 
-[![Build Status](https://github.com/{{github_id}}/generator-openapi-generator/workflows/CI/badge.svg)](https://github.com/{{github_id}}/generator-openapi-generator/actions?query=workflow%3ACI)
-[![Security Status](https://snyk.io/test/github/{{github_id}}/generator-openapi-generator/badge.svg)](https://snyk.io/test/github/{{github_id}}/generator-openapi-generator)
+[![Build Status](https://github.com/cliffano/generator-openapi-generator/workflows/CI/badge.svg)](https://github.com/cliffano/generator-openapi-generator/actions?query=workflow%3ACI)
+[![Security Status](https://snyk.io/test/github/cliffano/generator-openapi-generator/badge.svg)](https://snyk.io/test/github/cliffano/generator-openapi-generator)
 
 Generator-OpenAPI-Generator
 ---------------------------
