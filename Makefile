@@ -19,7 +19,7 @@ test-oag-file-spec:
 		--project_desc "OAG with file specification" \
 		--author_name "Pakkun" \
 		--author_email "blah+pakkun@cliffano.com" \
-		--author_url "https://github.com/cliffano/pakkunbot"
+		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-file-spec/ && \
 	  CUSTOM=true make init-langs-config ci
