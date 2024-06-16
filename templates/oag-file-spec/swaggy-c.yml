@@ -1,0 +1,13 @@
+spec_uri: specification/{{project_id}}.yml
+version: {{initVersion}}
+contact:
+  name: {{project_name}}
+  url: https://github.com/{{github_id}}/{{project_id}}
+  email: {{author_email}}
+scm:
+  git_user: {{github_id}}
+  git_repo: {{project_id}}
+base_dir:
+  github_actions: /home/runner/work/{{project_id}}/{{project_id}}
+  local: /Users/cliffano/dev/workspace-studio/{{project_id}}
+  custom: /Users/cliffano/dev/workspace-studio/generator-openapi-generator/stage/{{project_id}}
