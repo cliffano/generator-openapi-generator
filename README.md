@@ -32,6 +32,7 @@ Both components will prompt you the following inputs:
 | Project Description | Used in documentation or comments. |
 | Author Name | The name of the project author. |
 | Author Email | The email of the project author. |
+| Author URL | The author's website URL. |
 | GitHub ID | The GitHub ID of the project repo. |
 
 

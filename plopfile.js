@@ -58,6 +58,11 @@ export default function (plop) {
         },
         {
           type: 'input',
+          name: 'author_url',
+          message: 'Author URL'
+        },
+        {
+          type: 'input',
           name: 'github_id',
           message: 'GitHub ID'
         }
