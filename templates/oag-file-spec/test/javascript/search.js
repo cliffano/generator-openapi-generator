@@ -1,5 +1,6 @@
-const assert = require('assert');
-const OpenapiJsClient = require('openapi-js-client');
+import assert from 'assert';
+import OpenapiJsClient from 'openapi-js-client';
+
 const api = new OpenapiJsClient.DefaultApi()
 
 describe('google', function() {
