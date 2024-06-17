@@ -13,6 +13,7 @@ It provides the following components:
 | Component | Description |
 |-----------|-------------|
 | oag-file-spec | Generate a project to generate OpenAPI Generator using a file specification. |
+| oag-url-spec | Generate a project to generate OpenAPI Generator using a URL specification. |
 
 All components are built using [Swaggy C](https://github.com/cliffano/swaggy-c).
 

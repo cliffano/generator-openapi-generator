@@ -1,0 +1,32 @@
+---
+openapi: 3.0.0
+info:
+  version: {{initVersion}}
+  title: {{project_d}}
+  description: {{project_desc}}
+  license:
+    name: MIT
+  contact:
+    name: {{author_name}}
+    url: {{author_url}}
+    email: {{author_email}}
+servers:
+  - url: https://google.com
+paths:
+  /search:
+    get:
+      summary: Search with a query
+      operationId: search
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Search HTML response
+          content:
+            text/plain:
+              schema:
+                type: string
