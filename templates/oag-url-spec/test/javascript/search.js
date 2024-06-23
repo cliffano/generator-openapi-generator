@@ -1,5 +1,5 @@
 import assert from 'assert';
-import OpenapiJsClient from 'openapi-js-client';
+import OpenapiJsClient from 'swaggy_c_example';
 
 const api = new OpenapiJsClient.DefaultApi()
 
