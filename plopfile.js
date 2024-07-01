@@ -72,6 +72,8 @@ export default function (plop) {
           type: 'addMany',
           destination: 'stage',
           templateFiles: [
+            'templates/oag-file-spec/.*/*/*/*',
+            'templates/oag-file-spec/.*/*/*',
             'templates/oag-file-spec/**/.*',
             'templates/oag-file-spec/**/*'
           ]
@@ -123,6 +125,8 @@ export default function (plop) {
         type: 'addMany',
         destination: 'stage',
         templateFiles: [
+          'templates/oag-file-spec/.*/*/*/*',
+          'templates/oag-file-spec/.*/*/*',
           'templates/oag-url-spec/**/.*',
           'templates/oag-url-spec/**/*'
         ]
