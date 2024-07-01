@@ -12,4 +12,4 @@ jobs:
           ref: main
       - uses: ./.github/actions/publish-ruby-action
         env:
-          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+          RUBYGEMS_TOKEN: $\{{ secrets.RUBYGEMS_TOKEN }}
