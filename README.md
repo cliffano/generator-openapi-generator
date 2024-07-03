@@ -20,9 +20,13 @@ All components are built using [Swaggy C](https://github.com/cliffano/swaggy-c).
 Usage
 -----
 
-Generate OAG project:
+Generate OAG with file specification project:
 
-    make generate-<component>
+    make generate-oag-file-spec
+
+Generate OAG with URL specification project:
+
+    make generate-oag-url-spec
 
 Both components will prompt you the following inputs:
 
