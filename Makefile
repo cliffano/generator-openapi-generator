@@ -9,10 +9,16 @@ stage:
 deps:
 	npm install .
 
-generate-oag-file-spec:
+clean-oag-file-spec:
+	rm -rf stage/oag-file-spec/
+
+clean-oag-url-spec:
+	rm -rf stage/oag-url-spec/
+
+generate-oag-file-spec: clean-oag-file-spec
 	node_modules/.bin/plop oag-file-spec
 
-generate-oag-url-spec:
+generate-oag-url-spec: clean-oag-url-spec
 	node_modules/.bin/plop oag-url-spec
 
 test-oag-file-spec:
@@ -39,4 +45,4 @@ test-oag-url-spec:
 	cd stage/oag-url-spec/ && \
 	  CUSTOM=true make init-langs-config ci
 
-.PHONY: ci clean stage deps generate-oag-file-spec generate-oag-url-spec test-oag-file-spec test-oag-url-spec
+.PHONY: ci clean clean-oag-file-spec clean-oag-url-spec stage deps generate-oag-file-spec generate-oag-url-spec test-oag-file-spec test-oag-url-spec
