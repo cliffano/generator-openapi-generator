@@ -50,9 +50,12 @@ Initial configuration file for each OAG language:
 
 For the primary languages, modify the configuration file to include the following:
 
+(NOTE: configuration properties can be found in the [OpenAPI Generator Mustache templates](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources)
+
 ### Javascript
 
     {
+      "projectName": "<project_id>",
       "packageName": "<project_id>",
       "packageVersion": "<version>",
       "gitUserId": "<github_id>",
@@ -62,6 +65,7 @@ For the primary languages, modify the configuration file to include the followin
 ### Python
 
     {
+      "projectName": "<project_id>",
       "packageName": "<project_id>",
       "packageVersion": "<version>",
       "packageUrl": "https://github.com/<github_id>/<project_id>",
