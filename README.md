@@ -1,4 +1,4 @@
-<img align="right" src="https://raw.github.com/cliffano/generator-openapi-generator/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/cliffano/generator-openapi-generator/main/avatar.jpg" alt="Avatar"/>
 
 [![Build Status](https://github.com/cliffano/generator-openapi-generator/workflows/CI/badge.svg)](https://github.com/cliffano/generator-openapi-generator/actions?query=workflow%3ACI)
 [![Security Status](https://snyk.io/test/github/cliffano/generator-openapi-generator/badge.svg)](https://snyk.io/test/github/cliffano/generator-openapi-generator)

@@ -1,4 +1,4 @@
-<img align="right" src="https://raw.github.com/{{github_id}}/{{project_id}}/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/{{github_id}}/{{project_id}}/main/avatar.jpg" alt="Avatar"/>
 
 [![Build Status](https://github.com/{{github_id}}/{{project_id}}/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/{{github_id}}/{{project_id}}/actions/workflows/ci-workflow.yaml)
 <br/>
