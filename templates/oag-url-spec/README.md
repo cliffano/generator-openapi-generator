@@ -13,7 +13,7 @@ Published packages
 
 | Language | Package | Status | Documentation |
 |----------|---------|--------|---------------|
-| JavaScript | [{{javascriptPkgName project_name}}]((http://www.npmjs.com/package/{{javascriptPkgName project_name}})) | [![Published Version](https://img.shields.io/npm/v/{{javascriptPkgName project_name}}.svg)](http://www.npmjs.com/package/{{javascriptPkgName project_name}}) | [README](https://github.com/{{github_id}}/{{project_id}}/blob/main/clients/javascript/generated/README.md) |
+| JavaScript | [{{javascriptPkgName project_name}}]((https://www.npmjs.com/package/{{javascriptPkgName project_name}})) | [![Published Version](https://img.shields.io/npm/v/{{javascriptPkgName project_name}}.svg)](https://www.npmjs.com/package/{{javascriptPkgName project_name}}) | [README](https://github.com/{{github_id}}/{{project_id}}/blob/main/clients/javascript/generated/README.md) |
 | Python | [{{project_id}}]((https://pypi.python.org/pypi/{{project_id}})) | [![Published Version](https://img.shields.io/pypi/v/{{project_id}}.svg)](https://pypi.python.org/pypi/{{project_id}}) | [README](https://github.com/{{github_id}}/{{project_id}}/blob/main/clients/python/generated/README.md) |
 | Ruby | [{{rubyPkgName project_name}}]((https://rubygems.org/gems/{{rubyPkgName project_name}})) | [![Published Version](https://img.shields.io/gem/v/{{rubyPkgName project_name}}.svg)](https://rubygems.org/gems/{{rubyPkgName project_name}}) | [README](https://github.com/{{github_id}}/{{project_id}}/blob/main/clients/ruby/generated/README.md) |
 
