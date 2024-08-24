@@ -9,5 +9,5 @@ jobs:
       - uses: cliffano/command-docker-action@v1.0.0
         with:
           command: 'make ci'
-          image: cliffano/studio
+          image: cliffano/studio:1.5.0
           shell: bash
