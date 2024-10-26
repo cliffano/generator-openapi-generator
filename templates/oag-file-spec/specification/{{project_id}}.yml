@@ -2,7 +2,7 @@
 openapi: 3.0.0
 info:
   version: {{initVersion}}
-  title: {{project_d}}
+  title: {{project_id}}
   description: {{project_desc}}
   license:
     name: MIT
