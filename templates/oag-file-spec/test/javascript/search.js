@@ -1,7 +1,7 @@
 import assert from 'assert';
-import OpenapiJsClient from 'openapi-js-client';
+import ApiClient from 'oag_file_spec';
 
-const api = new OpenapiJsClient.DefaultApi()
+const api = new ApiClient.DefaultApi()
 
 describe('google', function() {
   it('should search with the query', function(done) {
