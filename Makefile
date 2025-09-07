@@ -9,10 +9,6 @@ stage:
 deps:
 	npm install .
 
-deps-extra-apt:
-	apt-get update
-	apt-get install -y libyaml-dev
-
 clean-oag-file-spec:
 	rm -rf stage/oag-file-spec/
 
@@ -49,4 +45,4 @@ test-oag-url-spec:
 	cd stage/oag-url-spec/ && \
 	  CUSTOM=true make init-langs-config ci
 
-.PHONY: ci clean clean-oag-file-spec clean-oag-url-spec stage deps deps-extra-apt generate-oag-file-spec generate-oag-url-spec test-oag-file-spec test-oag-url-spec
+.PHONY: ci clean clean-oag-file-spec clean-oag-url-spec stage deps generate-oag-file-spec generate-oag-url-spec test-oag-file-spec test-oag-url-spec

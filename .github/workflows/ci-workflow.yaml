@@ -8,6 +8,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: cliffano/command-docker-action@v1.0.0
         with:
-          command: 'make deps-extra-apt ci'
+          command: 'make ci'
           image: cliffano/studio:1.5.0
           shell: bash
