@@ -4,10 +4,10 @@
 ################################################################
 
 # The version of Swaggy C
-SWAGGY_C_VERSION = 4.6.0
+SWAGGY_C_VERSION = 4.10.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
-OPENAPI_GENERATOR_VERSION = 7.6.0
+OPENAPI_GENERATOR_VERSION = 7.12.0
 
 # LANGS_ALL lists the languages supported by the given OPENAPI_GENERATOR_VERSION
 LANGS_ALL = ada ada-server android apache2 apex asciidoc aspnetcore avro-schema bash crystal c clojure cwiki cpp-qt-client cpp-qt-qhttpengine-server cpp-pistache-server cpp-restbed-server cpp-restbed-server-deprecated cpp-restsdk cpp-tiny cpp-tizen cpp-ue4 csharp csharp-functions dart dart-dio eiffel elixir elm erlang-client erlang-proper erlang-server fsharp-functions fsharp-giraffe-server go go-echo-server go-server go-gin-server graphql-schema graphql-nodejs-express-server groovy kotlin kotlin-server kotlin-spring kotlin-vertx ktorm-schema haskell-http-client haskell haskell-yesod java jaxrs-cxf-client java-helidon-client java-helidon-server java-inflector java-micronaut-client java-micronaut-server java-msf4j java-pkmst java-play-framework java-undertow-server java-vertx java-vertx-web java-camel jaxrs-cxf jaxrs-cxf-extended jaxrs-cxf-cdi jaxrs-jersey jaxrs-resteasy jaxrs-resteasy-eap jaxrs-spec javascript javascript-apollo-deprecated javascript-flowtyped javascript-closure-angular java-wiremock jetbrains-http-client jmeter julia-client julia-server k6 lua markdown mysql-schema n4js nim nodejs-express-server objc ocaml openapi openapi-yaml plantuml perl php php-nextgen php-laravel php-lumen php-slim4 php-symfony php-mezzio-ph php-dt postman-collection powershell protobuf-schema python python-pydantic-v1 python-fastapi python-flask python-aiohttp python-blueplanet r ruby ruby-on-rails ruby-sinatra rust rust-server scalatra scala-akka scala-pekko scala-akka-http-server scala-finch scala-gatling scala-http4s-server scala-lagom-server scala-play-server scala-sttp scala-sttp4 scalaz spring dynamic-html html html2 swift5 swift-combine typescript typescript-angular typescript-aurelia typescript-axios typescript-fetch typescript-inversify typescript-jquery typescript-nestjs typescript-node typescript-redux-query typescript-rxjs wsdl-schema xojo-client zapier rust-axum
@@ -54,15 +54,19 @@ SCM_GIT_REPO ?= $(shell yq .scm.git_repo swaggy-c.yml)
 #   This is used when GITHUB_ACTIONS environment variable is specified.
 # - Custom directory to overwrite the other directories: /any/path/to/some-app
 #   This is used when CUSTOM environment variable is specified.
-ifdef GITHUB_ACTIONS
-APP_BASE_DIR=$(shell yq .base_dir.github_actions swaggy-c.yml)
+ifdef CUSTOM
+APP_BASE_DIR=$(shell yq .base_dir.custom swaggy-c.yml)
 else
-  ifdef CUSTOM
-	APP_BASE_DIR=$(shell yq .base_dir.custom swaggy-c.yml)
+  ifdef GITHUB_ACTIONS
+	APP_BASE_DIR=$(shell yq .base_dir.github_actions swaggy-c.yml)
 	else
   APP_BASE_DIR=$(shell yq .base_dir.local swaggy-c.yml)
 	endif
 endif
+
+define python_venv
+	. .venv/bin/activate && $(1)
+endef
 
 $(info ################################################################)
 $(info Building Swaggy C application with user configurations:)
@@ -87,7 +91,7 @@ clean:
 # Retrieve the OpenAPI Generator Docker image and npm modules
 deps:
 	docker pull openapitools/openapi-generator-cli:v$(OPENAPI_GENERATOR_VERSION)
-	npm install -g bootprint bootprint-openapi gh-pages mocha
+	npm install -g bootprint bootprint-openapi gh-pages
 
 # Initialise OpenAPI specification from either a local file path or a remote URL
 # This target requires the following parameters to be supplied by user
@@ -160,7 +164,6 @@ generate-primary:
 
 build-javascript:
 	npm install -g babel-cli
-	npm install validator
 	cd clients/javascript/generated/ && \
 	  npm install && \
 	  npm link && \
@@ -169,14 +172,15 @@ build-javascript:
 	  npm link ../../clients/javascript/generated/
 
 build-python:
-	sudo apt-get install -y python-setuptools
-	pip install twine wheel pytest validators
 	cd clients/python/generated/ && \
-	  pip install -r requirements.txt && \
-	  python3 setup.py sdist bdist_wheel && \
-	  python3 setup.py install
+	  python3 -m venv .venv && \
+	  $(call python_venv,pip install twine wheel pytest setuptools validators) && \
+	  $(call python_venv,pip install -r requirements.txt) && \
+	  $(call python_venv,python3 setup.py sdist bdist_wheel) && \
+	  $(call python_venv,python3 setup.py install --single-version-externally-managed --record record.txt)
 
 build-ruby:
+	apt-get install libyaml-dev
 	cd clients/ruby/generated/ && \
 	  find . -name '*.gem' -delete && \
 	  gem install bundler --version=1.17.3 && \
@@ -188,14 +192,16 @@ build-ruby:
 # API clients testing targets for primary languages
 
 test-javascript: build-javascript
+	npm install -g mocha
+	npm install validator
 	cd clients/javascript/generated/ && \
 	  npm run test
 	mocha --timeout 5000 test/javascript/
 
 test-python: build-python
 	cd clients/python/generated/ && \
-	  twine check dist/*
-	pytest -v test/python/*.py --capture=no
+	  $(call python_venv,twine check dist/*) && \
+	  $(call python_venv,pytest -v ../../../test/python/*.py --capture=no)
 
 test-ruby: build-ruby
 
@@ -208,7 +214,7 @@ publish-javascript: build-javascript
 
 publish-python: build-python
 	cd clients/python/generated/ && \
-	  twine upload dist/*
+	  $(call python_venv,twine upload dist/*)
 
 publish-ruby: build-ruby
 	cd clients/ruby/generated/ && \
