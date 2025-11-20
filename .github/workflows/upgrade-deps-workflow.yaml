@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
@@ -15,7 +15,7 @@ jobs:
       - run: git config --global user.name "pakkunbot"
       - run: npm install -g bob@4
       - run: bob updep
-      - uses: cliffano/command-docker-action@v1.3.0
+      - uses: cliffano/command-docker-action@v1.4.0
         with:
           image: cliffano/studio:2.11.1
           command: 'make ci'
