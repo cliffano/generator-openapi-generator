@@ -1,4 +1,5 @@
 ci: clean stage deps test-oag-file-spec test-oag-url-spec
+ci-local: clean stage deps test-oag-file-spec-local test-oag-url-spec-local
 
 clean:
 	rm -rf stage/
