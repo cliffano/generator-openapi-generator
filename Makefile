@@ -32,7 +32,7 @@ test-oag-file-spec:
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-file-spec/ && \
-	  CUSTOM=true make init-langs-config ci
+	  CUSTOM=true make init-generators-config ci
 
 test-oag-file-spec-local:
 	node_modules/.bin/plop oag-file-spec -- \
@@ -44,7 +44,7 @@ test-oag-file-spec-local:
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-file-spec/ && \
-	  LOCAL=true make init-langs-config ci
+	  LOCAL=true make init-generators-config ci
 
 test-oag-url-spec:
 	node_modules/.bin/plop oag-url-spec -- \
@@ -56,7 +56,7 @@ test-oag-url-spec:
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-url-spec/ && \
-	  CUSTOM=true make init-langs-config ci
+	  CUSTOM=true make init-generators-config ci
 
 test-oag-url-spec-local:
 	node_modules/.bin/plop oag-url-spec -- \
@@ -68,6 +68,6 @@ test-oag-url-spec-local:
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-url-spec/ && \
-	  LOCAL=true make init-langs-config ci
+	  LOCAL=true make init-generators-config ci
 
 .PHONY: ci clean clean-oag-file-spec clean-oag-url-spec stage deps generate-oag-file-spec generate-oag-url-spec test-oag-file-spec test-oag-file-spec-local test-oag-url-spec test-oag-url-spec-local

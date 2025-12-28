@@ -27,7 +27,7 @@ Version matrix
 Installation
 ------------
 
-You can either use the generated clients from `clients/<lang>/generated/` directory.
+You can either use the generated clients from `clients/<generator>/generated/` directory.
 
 Or you can use the published packages like below:
 

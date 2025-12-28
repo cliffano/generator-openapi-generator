@@ -47,7 +47,7 @@ Move to the generated project directory:
 
 Initial configuration file for each OAG language:
 
-    make init-langs-config
+    make init-generators-config
 
 For the primary languages, modify the configuration file to include the following:
 
