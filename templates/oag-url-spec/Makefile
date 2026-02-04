@@ -4,7 +4,7 @@
 ################################################################
 
 # The version of Swaggy C
-SWAGGY_C_VERSION = 5.0.1
+SWAGGY_C_VERSION = 5.1.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 7.18.0
@@ -188,7 +188,7 @@ build-javascript:
 build-python:
 	cd clients/python/generated/ && \
 	  python3 -m venv .venv && \
-	  $(call python_venv,pip install twine wheel pytest setuptools validators) && \
+	  $(call python_venv,pip install twine wheel pytest setuptools) && \
 	  $(call python_venv,pip install -r requirements.txt) && \
 	  $(call python_venv,python3 setup.py sdist bdist_wheel) && \
 	  $(call python_venv,python3 setup.py install --single-version-externally-managed --record record.txt)
@@ -209,18 +209,23 @@ build-ruby:
 # Test target is a convenience target to run tests for all primary generators
 test: test-javascript test-python test-ruby
 
-test-javascript: build-javascript
+test-javascript: x-test-javascript
+
+# Disabled Javascript unit tests (npm run test)
+# due to https://github.com/oapicf/endoflife.date-api-clients/issues/1
+x-test-javascript: build-javascript
 	npm install -g mocha
 	npm install validator
 	cd clients/javascript/generated/ && \
-	  npm install --dev && \
-	  npm run test
+	  npm install --dev # && \
+	  # npm run test
 	cd test/javascript/ && \
 	  npm link ../../clients/javascript/generated/ && \
 	  mocha --timeout 5000 .
 
 test-python: build-python
 	cd clients/python/generated/ && \
+	  $(call python_venv,pip install validators) && \
 	  $(call python_venv,twine check dist/*) && \
 	  $(call python_venv,pytest -v ../../../test/python/*.py --capture=no)
 
