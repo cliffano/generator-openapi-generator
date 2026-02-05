@@ -1,5 +1,5 @@
 import assert from 'assert';
-import ApiClient from 'oag_url_spec';
+import ApiClient from 'swaggy_c_example';
 
 const api = new ApiClient.DefaultApi()
 
