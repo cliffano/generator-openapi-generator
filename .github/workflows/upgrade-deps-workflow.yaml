@@ -11,17 +11,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: git config --global user.email "blah+pakkun@cliffano.com"
-      - run: git config --global user.name "pakkunbot"
       - run: npm install -g bob@4
       - run: bob updep
       - uses: cliffano/command-docker-action@v1.4.0
         with:
           image: cliffano/studio:2.11.1
           command: 'make ci'
-      - run: git commit -am "Upgrade dependencies to latest"
-      - uses: ad-m/github-push-action@v0.8.0
+      - uses: cliffano/save-changes-action@v1.0.0
         with:
-          tags: true
+          message: "Upgrade dependencies to latest"
           github_token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
