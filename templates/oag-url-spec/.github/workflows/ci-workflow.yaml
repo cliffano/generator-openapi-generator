@@ -17,4 +17,4 @@ jobs:
           image: cliffano/studio
           shell: bash
       - run: npm install -g gh-pages
-      - run: CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot <blah+pakkun@cliffano.com>" --repo "https://cliffano:$\{{ secrets.OAPICF_GITHUB_TOKEN }}@github.com/{{github_id}}/{{project_id}}.git"
+      - run: CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot <pakkunbot@users.noreply.github.com>" --repo "https://cliffano:$\{{ secrets.OAPICF_GITHUB_TOKEN }}@github.com/{{github_id}}/{{project_id}}.git"

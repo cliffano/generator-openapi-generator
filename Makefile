@@ -28,7 +28,7 @@ test-oag-file-spec:
 		--project_name "OAGFileSpec" \
 		--project_desc "OAG with file specification" \
 		--author_name "Pakkun" \
-		--author_email "blah+pakkun@cliffano.com" \
+		--author_email "pakkunbot@users.noreply.github.com" \
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-file-spec/ && \
@@ -40,7 +40,7 @@ test-oag-file-spec-local:
 		--project_name "OAGFileSpec" \
 		--project_desc "OAG with file specification" \
 		--author_name "Pakkun" \
-		--author_email "blah+pakkun@cliffano.com" \
+		--author_email "pakkunbot@users.noreply.github.com" \
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-file-spec/ && \
@@ -52,7 +52,7 @@ test-oag-url-spec:
 		--project_name "OAGURLSpec" \
 		--project_desc "OAG with URL specification" \
 		--author_name "Pakkun" \
-		--author_email "blah+pakkun@cliffano.com" \
+		--author_email "pakkunbot@users.noreply.github.com" \
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-url-spec/ && \
@@ -64,7 +64,7 @@ test-oag-url-spec-local:
 		--project_name "OAGURLSpec" \
 		--project_desc "OAG with URL specification" \
 		--author_name "Pakkun" \
-		--author_email "blah+pakkun@cliffano.com" \
+		--author_email "pakkunbot@users.noreply.github.com" \
 		--author_url "https://github.com/pakkunbot" \
 		--github_id "pakkunbot"
 	cd stage/oag-url-spec/ && \
